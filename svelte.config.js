@@ -3,15 +3,20 @@ import adapter from '@sveltejs/adapter-auto';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: adapter(),
-	},
+  kit: {
+    adapter: adapter(),
+    vite: {
+      ssr: {
+        noExternal: ['three'],
+      },
+    },
+  },
 
-	preprocess: [
-		preprocess({
-			postcss: true
-		})
-	]
+  preprocess: [
+    preprocess({
+      postcss: true,
+    }),
+  ],
 };
 
 export default config;
